@@ -1,16 +1,20 @@
 (()=> {
+  
+  /* ===== Animation properties ===== */
   const properties = {
     backgroundColor: "#232331",
-    particlesColor: "rgba(255, 50, 50)",
+    particlesColor: "rgb(255, 50, 50)",
     particlesRadius: 3,
     particlesCount: 100,
     particlesMaxVelosity: 0.5,
-    lineLength: 150,
-    lineWidth: 0.5,
-    lineColor: 'rgba(255, 50, 50, ',
     particlesLifeTime : 6,
+    linesLength: 150,
+    linesWidth: 0.5,
+    linesColor: 'rgba(255, 50, 50)', //only rgba
   }
+  /* ================================ */
 
+  //create canvas and get context
   const canvas = document.createElement("canvas")
   const ctx = canvas.getContext("2d")
 
@@ -80,10 +84,10 @@
         x2 = particles[j].x
         y2 = particles[j].y
         length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
-        if(length < properties.lineLength){
-          opacity = 1-length/properties.lineLength
-          ctx.lineWidth = properties.lineWidth
-          ctx.strokeStyle = properties.lineColor +opacity+ ')'
+        if(length < properties.linesLength){
+          opacity = 1-length / properties.linesLength
+          ctx.linesWidth = properties.linesWidth
+          ctx.strokeStyle = properties.linesColor.substring(0, properties.linesColor.length - 1) + "," + opacity+ ")"
           ctx.beginPath()
           ctx.moveTo(x1, y1)
           ctx.lineTo(x2, y2)
