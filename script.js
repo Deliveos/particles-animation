@@ -1,11 +1,10 @@
 (()=> {
-  
   /* ===== Animation properties ===== */
   const properties = {
     backgroundColor: "#232331",
     particlesColor: "rgb(255, 50, 50)",
     particlesRadius: 3,
-    particlesCount: 100,
+    particlesCount: Math.floor(Math.floor((innerWidth*innerHeight)/(innerHeight+innerWidth)*2)/10),
     particlesMaxVelosity: 0.5,
     particlesLifeTime : 6,
     linesLength: 150,
@@ -13,6 +12,7 @@
     linesColor: 'rgba(255, 50, 50)', //only rgba
   }
   /* ================================ */
+
 
   //create canvas and get context
   const canvas = document.createElement("canvas")
